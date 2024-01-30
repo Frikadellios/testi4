@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { getCollection } from "astro:content";
 
 const blog = defineCollection({
-	// Type-check frontmatter using a schema
+	type: 'content', // 'data' for JSON
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
