@@ -22,7 +22,7 @@ export default defineConfig({
       {
         name: "blog",
         label: "Blog",
-        path: "src/content/blog/*",
+        path: "src/content/blog",
         format: 'mdx',
         fields: [
           {
