@@ -1,30 +1,22 @@
-import { defineCollection, z } from 'astro:content';
-import { getCollection } from "astro:content";
+import { z, defineCollection } from 'astro:content';
+// 2. Define your collection(s)
 
-const blog = defineCollection({
-	type: 'content', // 'data' for JSON
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-		lang: z.string().optional(),
-		author: z.string().optional()
-	}),
+const editorialCollection = defineCollection({
+  type: 'content', // 'data' for JSON
+  schema: z.object({
+    title: z.string().optional(),
+  }),
 });
 
-export const collections = { blog };
+const postsCollection = defineCollection({
+  type: 'content', // 'data' for JSON
+  schema: z.object({
+    title: z.string().optional(),
+  }),
+});
 
-export async function getBlogPosts() {
-	const posts = await getCollection('blog');
-
-	return posts.map((post) => {
-		const blog_slug = post.slug.split('/')[0];
-		return {
-			...post,
-			blog_slug
-		}
-	})
-}
+// Key should match your collection directory name in "src/content"
+export const collections = {
+  editorial: editorialCollection,
+  posts: postsCollection,
+};

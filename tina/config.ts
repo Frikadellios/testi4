@@ -25,27 +25,21 @@ export default defineConfig({
         path: "src/content/blog",
         format: 'md',
         fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "datetime",
-            name: "posted",
-            label: "Date Posted",
-            required: true,
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
-        ],
-      },
+            {
+              type: 'string',
+              name: 'title',
+              label: 'Title',
+              isTitle: true,
+              required: true,
+            },
+            {
+              type: 'rich-text',
+              name: 'body',
+              label: 'Body',
+              isBody: true,
+            },
+          ],
+        },
     ],
   },
 });
